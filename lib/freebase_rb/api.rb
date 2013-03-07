@@ -89,7 +89,7 @@ module FreebaseRb
       end
 
       def self.log(message)
-        @logger.debug("FreebaseRb: #{message}")
+        @logger.debug("FreebaseRb: #{message}") if Config.settings[:logging]
       end
     end
 end
