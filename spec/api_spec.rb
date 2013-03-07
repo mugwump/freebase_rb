@@ -3,7 +3,7 @@ require "freebase_rb"
 describe FreebaseRb::API do
   
   before :all do
-    FreebaseRb::Config.api_key "AIzaSyBhsujV4cTbYov4dW-nzGluwx0nZav4reU"
+    FreebaseRb::Config.api_key ENV["GOOGLE_API_KEY"]
     FreebaseRb::Config.cache(:is_active => false)
     
   end
