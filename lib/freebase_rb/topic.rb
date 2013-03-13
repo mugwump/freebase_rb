@@ -31,7 +31,6 @@ module FreebaseRb
     end
 
     def get_property(property_name)
-
       property = property_name.to_s
 
       return nil if @raw_data.blank?
@@ -56,10 +55,25 @@ module FreebaseRb
       get_property(key)
     end
 
+    def to_s
+      "#{id}: #{description}"
+    end
+
+    def inspect
+      "#{id}: #{description}"
+    end
+
+    # implemented to get proper puts-support without running into issues with the method_missing-implementation
+    def to_ary
+      ["#{id}: #{description}", @raw_data]
+    end
+
     private
 
     def method_missing(method, *args)
       get_property(method)
     end
+
+
   end
 end

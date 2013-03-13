@@ -72,8 +72,8 @@ module FreebaseRb
       end
 
       def self.get_uncached_result(url)
-        log "querying freebase with: #{url}"
-        
+        puts "querying freebase with: #{url}"
+
         response = HTTParty.get(url)
         if response.code == 200
           return JSON.parse(response.body)

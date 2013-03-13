@@ -10,7 +10,7 @@ describe FreebaseRb::API do
   
   let (:api) { FreebaseRb::API}
 
-  
+
   describe ".get" do
       it "returns a topic with the correct name" do
         api.get("/en/the_beatles").name.should eql "The Beatles"
@@ -33,6 +33,7 @@ describe FreebaseRb::API do
       topic.description.length.should > 100
     end
   end
+
   
 
   describe ".topic" do
@@ -54,4 +55,12 @@ describe FreebaseRb::API do
   end
 
 
+  describe "inspection should provide a meaningful result and don't throw errors" do
+    it "inspect works" do
+     topic = api.search("Elvis Presley").first
+     lambda { puts topic }.should_not raise_exception
+    end
+
+
+  end
 end
